@@ -12,14 +12,17 @@ public class PlayerController : Stats
     public float sens;
     public Transform cameraView;
     public Transform gun;
+    bool dead;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        dead = false;
     }
 
     void Update()
     {
+        if (dead) return;
         direction.x = Input.GetAxis("Horizontal");
         direction.z = Input.GetAxis("Vertical");
         if (Input.GetKeyDown(KeyCode.Space))
@@ -51,6 +54,7 @@ public class PlayerController : Stats
 
     public override void Die()
     {
+        dead = true;
         GameMngr.gM.ShowMsg("Вы умерли!");
     }
 }

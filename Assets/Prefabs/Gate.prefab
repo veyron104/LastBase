@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7137252335677225733}
   - component: {fileID: 6216826672903291354}
   - component: {fileID: 4283229470191162618}
+  - component: {fileID: 2186618663949223883}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -106,3 +107,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd9a1bb5b1caf4048bae5a2882ba6ca0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blocked: 1
+  doorObject: {fileID: 0}
+--- !u!208 &2186618663949223883
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570012509962205420}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

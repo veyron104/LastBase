@@ -8,17 +8,19 @@ public class Stats : MonoBehaviour
     public float speed;
     public float attack;
     public float def;
-    Stats target;
+    public Stats target;
 
 
     public void DealDamage ()
     {
-        target.GetDamage(attack);
+        target.GetDamage(attack, this);
     }
 
-    public virtual void GetDamage(float _damage)
+    public virtual void GetDamage(float _damage, Stats _target)
     {
+        Debug.Log("GetDamage " + _damage);
         hp -= _damage * (1 - 0.7f * def / 150);
+        target = _target;
         if (hp <= 0)
         {
             hp = 0;
@@ -28,6 +30,5 @@ public class Stats : MonoBehaviour
 
     public virtual void Die()
     {
-
     }
 }

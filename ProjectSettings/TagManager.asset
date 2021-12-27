@@ -7,6 +7,7 @@ TagManager:
   - Monster
   - "\u0421oncrete"
   - Wood
+  - Item
   layers:
   - Default
   - TransparentFX

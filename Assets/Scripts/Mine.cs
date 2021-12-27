@@ -22,6 +22,8 @@ public class Mine : MonoBehaviour
         {
             if (_target != null) _target.GetDamage(damage, null);
         }
+
+        Destroy(gameObject);
     }
 
     private void OnTriggerExit(Collider other)

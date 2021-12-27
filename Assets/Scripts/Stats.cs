@@ -18,7 +18,6 @@ public class Stats : MonoBehaviour
 
     public virtual void GetDamage(float _damage, Stats _target)
     {
-        Debug.Log("GetDamage " + _damage);
         hp -= _damage * (1 - 0.7f * def / 150);
         target = _target;
         if (hp <= 0)

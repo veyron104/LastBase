@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7137252335677225733}
   - component: {fileID: 6216826672903291354}
   - component: {fileID: 4283229470191162618}
-  - component: {fileID: 2186618663949223883}
+  - component: {fileID: 5743584814029323585}
   m_Layer: 0
   m_Name: Gate
   m_TagString: Untagged
@@ -108,8 +108,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blocked: 1
-  doorObject: {fileID: 0}
---- !u!208 &2186618663949223883
+  doorObject: {fileID: 1314606694301616108}
+  nmo: {fileID: 5743584814029323585}
+  openingSound: {fileID: 0}
+--- !u!208 &5743584814029323585
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

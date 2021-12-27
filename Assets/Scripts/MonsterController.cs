@@ -23,6 +23,8 @@ public class MonsterController : Stats
         }
     }
 
+    // Чтобы терять цель из поля зрения нужно запускать рейкаст из монстра в плэера и смотреть в кого попадает луч, если не в игрока тогда запускать CancelAttack
+
     public override void GetDamage(float _damage, Stats _target)
     {
         base.GetDamage(_damage, _target);
@@ -37,6 +39,14 @@ public class MonsterController : Stats
             nma.speed *= 2;
             inCombat = true;
         }
+    }
+
+    public void CancelAttack(Stats _target)
+    {
+        target = null;
+        nma.speed /= 2;
+        inCombat = false;
+        StartCoroutine(FindDirection());
     }
 
     public IEnumerator FindDirection()

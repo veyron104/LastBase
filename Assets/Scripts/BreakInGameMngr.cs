@@ -16,6 +16,14 @@ public class BreakInGameMngr : MonoBehaviour
         bigM = this;
     }
 
+    public void StartElectricity(Door _targetDoor, int _hard)
+    {
+        Cursor.lockState = CursorLockMode.None;
+        targetDoor = _targetDoor;
+        gameWndw.SetActive(true);
+        openedDoorText.text = $"Дверь {targetDoor.name} открыта!";
+    }
+
     public void StartBreakIn(Door _targetDoor, int _hard)
     {
         Cursor.lockState = CursorLockMode.None;

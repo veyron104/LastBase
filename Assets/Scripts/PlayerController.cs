@@ -9,12 +9,13 @@ public class PlayerController : Stats
     public Rigidbody rb;
 
     public float sens;
-    public Transform gun;
     bool dead;
 
-    float nextShot = 0f;
-    public float fireRate = 1f;
-    public AudioSource shotSound;
+    public Transform gunParent;
+    public Gun gun;
+
+    public bool canShoot = true;
+    public Inventory inventory;
 
     private void Start()
     {
@@ -36,23 +37,41 @@ public class PlayerController : Stats
 
         transform.Rotate(0, xRot * sens, 0);
         myCam.transform.Rotate(yRot * sens, 0, 0);
-        gun.Rotate(yRot * sens, 0, 0);
 
-        if (Input.GetButton("Fire1") && Time.time >= nextShot)
+        if (Input.GetButton("Fire1") && canShoot && Time.time >= gun.nextShot && gun.shotAvailable)
         {
-            nextShot = Time.time + 1f / fireRate;
-            Fire();
+            Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit _hit)) gun.Fire(_hit);
+        }
+        if (Input.GetButtonUp("Fire1")) gun.shotAvailable = true;
+
+        if (Input.GetButtonDown("Fire2")) PickUpItem();
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            inventory.gameObject.SetActive(!inventory.gameObject.activeSelf);
+            if (inventory.gameObject.activeSelf)
+            {
+                canShoot = false;
+                Cursor.lockState = CursorLockMode.None;
+            }
+            else
+            {
+                canShoot = true;
+                Cursor.lockState = CursorLockMode.Locked;
+            }
         }
     }
 
-    void Fire()
+    void PickUpItem()
     {
         Ray ray = myCam.ScreenPointToRay(Input.mousePosition);
-
         if (Physics.Raycast(ray, out RaycastHit _hit))
         {
-            Stats target = _hit.collider.GetComponent<Stats>();
-            if (target != null && _hit.collider.CompareTag("Monster")) target.GetDamage(attack, this);
+            ItemSpawner _target = _hit.collider.GetComponent<ItemSpawner>();
+            if (_target != null && _hit.collider.CompareTag("Item"))
+            {
+                if (inventory.AddItem(_target.item, _target.count)) Destroy(_target.gameObject);
+            }
         }
     }
 

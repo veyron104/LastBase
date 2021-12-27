@@ -10,4 +10,9 @@ public class AgressionArea : MonoBehaviour
     {
         if (other.CompareTag("Player")) parent.Attack(other.GetComponent<Stats>());
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player")) parent.CancelAttack(other.GetComponent<Stats>());
+    }
 }

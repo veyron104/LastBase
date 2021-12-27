@@ -5,8 +5,12 @@ using UnityEngine;
 public class Turret : Stats
 {
     public List<Stats> targets = new List<Stats>();
-    float nextShot = 0f;
-    public float fireRate = 1f;
+    public Gun gun;
+
+    private void Start()
+    {
+        //gun.Equip(this);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -24,22 +28,11 @@ public class Turret : Stats
             else
             {
                 transform.LookAt(targets[0].transform);
-                if (Time.time >= nextShot)
-                {
-                    nextShot = Time.time + 1f / fireRate;
-                    Fire();
-                }
-            }    
-        }
-    }
-
-    void Fire()
-    {
-        if (Physics.Raycast(transform.position, targets[0].transform.position - transform.position, out RaycastHit _hit))
-        {
-            Stats _target = _hit.collider.GetComponent<Stats>();
-            if (_target != null && _hit.collider.CompareTag("Monster")) _target.GetDamage(attack, this);
-            else targets.Remove(_target);
+                //if (Time.time >= gun.nextShot)
+                //{
+                //    if (Physics.Raycast(transform.position, targets[0].transform.position - transform.position, out RaycastHit _hit)) gun.Fire(_hit);
+                //}
+            }
         }
     }
 

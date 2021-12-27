@@ -5568,6 +5568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5493709021244432435, guid: 54ab2446a998b2141b8bf33d428dcace,
         type: 3}
+      propertyPath: hp
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493709021244432435, guid: 54ab2446a998b2141b8bf33d428dcace,
+        type: 3}
       propertyPath: attack
       value: 10
       objectReference: {fileID: 0}

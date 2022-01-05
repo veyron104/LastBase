@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameMngr : MonoBehaviour
 {
     public static GameMngr gM;
+    public List<Item> itemsDB = new List<Item>();
 
     void Awake()
     {

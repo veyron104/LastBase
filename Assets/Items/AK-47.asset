@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa846df1c0bcdc540b36728dc330def4, type: 3}
+  m_Name: AK-47
+  m_EditorClassIdentifier: 
+  itemID: 1
+  sprite: {fileID: 21300000, guid: da914f8840b4b62488a82f1ac8f0bcf4, type: 3}
+  itemName: "\u0410\u041A-47"
+  stackAble: 0
+  primaryObj: {fileID: 5572330270056551927, guid: f10170ac4fb0a2b47a78492c8ddcd41a,
+    type: 3}
+  itemType: 0
+  equipmentType: 1
+  fireType: 0
+  hp: 0
+  speed: 0
+  attack: 30
+  def: 0
+  fireRate: 10
+  craftChance: 0
+  completeId: 0
+  completeQuantity: 0
+  time: 0
